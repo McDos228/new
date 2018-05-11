@@ -6,7 +6,8 @@ const Users = require('../../services/index').usersService;
 
 router.post('/login', (req, res, next)=>{
     req.checkBody('username').notEmpty().withMessage('username is required')
-    .isLength({ min: 4, max: 20 }).withMessage('username must be at least 4 characters');
+    .isLength({ min: 4, max: 20 }).withMessage('username must be at least 4 characters')
+        .matches(/^[A-Za-z0-9_]/, "i").withMessage('the username must contain letters or numbers');
     req.checkBody('password').notEmpty().withMessage('password is required')
         .matches(/^[A-Za-z0-9_]/, "i").withMessage('the password must contain letters or numbers');
     let errors = req.validationErrors();
@@ -36,7 +37,8 @@ router.post('/login', (req, res, next)=>{
 
 .post('/register', (req, res, next)=>{
     req.checkBody('username').notEmpty().withMessage('username is required')
-    .isLength({ min: 4, max: 20 }).withMessage('username must be at least 4 characters');
+    .isLength({ min: 4, max: 20 }).withMessage('username must be at least 4 characters')
+        .matches(/^[A-Za-z0-9_]/, "i").withMessage('the username must contain letters or numbers');
     req.checkBody('password').notEmpty().withMessage('password is required')
         .matches(/^[A-Za-z0-9_]/, "i").withMessage('the password must contain letters or numbers');
     let errors = req.validationErrors();
