@@ -46,11 +46,10 @@ describe('app tests', () => {
                 .post('/api/user/register')
                 .send(user2)
                 .end((err, res) => {
-                    console.log(res.body);
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('username');
-                    res.body.should.have.property('password');
+                    res.body.should.have.property('user');
+                    res.body.should.have.property('message').eql('You are successful register');
                     done();
                 });
         });
@@ -95,7 +94,7 @@ describe('app tests', () => {
         });
 
     });
-    //
+
     describe('/GET tasks', () => {
         it('it should GET all the tasks', (done) => {
             chai.request(server)
