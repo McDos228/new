@@ -12,7 +12,6 @@ module.exports.getAllTodos = (query, order, userId)=> {
 };
 
 module.exports.createTodo = (title, userId)=> {
-    console.log('create service', title, 'user id', userId);
     return Todos.create({
         title : title,
         status : 'false',
