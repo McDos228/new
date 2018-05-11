@@ -128,15 +128,20 @@ describe('app tests', () => {
     describe('/PUT/:id task', () => {
         it('it should UPDATE a task given the id', (done) => {
 
+            let todo = {
+                title: 'Make something',
+                status:true
+            };
+
             chai.request(server)
                 .put('/api/todos/tasks/' + taskId)
-                .send({title: 'Make something', status:true})
+                .send(todo)
                 .set('authorization', token)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('title');
-                    res.body.should.have.property('status');
+                    res.body.should.have.property('title').eql(todo.title);
+                    res.body.should.have.property('status').eql(todo.status);
                     done();
                 });
 
