@@ -26,16 +26,6 @@ describe('app tests', () => {
             userId = user.dataValues.id;
             done();
         });
-        // Models.sequelize.sync({ force: true}).then(()=>{
-        //     return Models.user.create({
-        //             username: user.username,
-        //             password:  bcrypt.hashSync(user.password, salt)
-        //         }).then(user=>{
-        //             userId = user.dataValues.id;
-        //         });
-        // }).then(()=>{
-        //     done();
-        // })
     });
 
     after(done=>{

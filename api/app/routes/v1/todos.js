@@ -29,8 +29,6 @@ router.get('/tasks', (req, res)=>{
                 return task.dataValues
             });
             res.json(todoList);
-        }else {
-            res.json({message:'task list not found'});
         }
     }).catch(err=>{
         if (err) res.json({

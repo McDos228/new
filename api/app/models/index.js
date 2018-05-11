@@ -29,9 +29,6 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-// db.user.hasMany(db.todos, {foreignKey:'id'});
-// db.todos.belongsTo(db.user, {foreignKey:'userId'});
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
