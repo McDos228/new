@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const validator = require('express-validator');
 const app = express();
-const routes = require('./api/app/routes/index');
+const routes = require('./routes/index');
 
 const port  = process.env.PORT || 3000;
 const server = http.createServer(app);

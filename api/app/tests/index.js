@@ -2,7 +2,7 @@ const Models = require('../models/index');
 const chai = require('chai');
 const bcrypt = require('bcrypt');
 const chaiHttp = require('chai-http');
-const server = require('../../../server');
+const server = require('../server');
 chai.use(chaiHttp);
 chai.should();
 
@@ -48,7 +48,7 @@ describe('app tests', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('user');
+                    res.body.should.have.property('user').eql(user2.username);
                     res.body.should.have.property('message').eql('You are successful register');
                     done();
                 });
